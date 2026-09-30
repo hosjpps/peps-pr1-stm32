@@ -9,7 +9,7 @@ from report_docx import C, Report  # noqa: E402
 STUDENT = "Васин С.А."
 GROUP = "ЭФБО-17-24"
 TEACHER = ""
-REPO_URL = ""   # ссылка на репозиторий с проектом; пусто — в отчёте будет красная пометка
+REPO_URL = "https://github.com/hosjpps/peps-pr1-stm32"
 
 
 def read(rel):
