@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "filename": "pr1_gpio_io.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "page_layout_descr_file": "gost_portrait.kicad_wks"
+  }
+}

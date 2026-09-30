@@ -1,0 +1,14 @@
+# методички и материалы других дисциплин
+/*.pdf
+/*.docx
+# отчёты сдаются отдельно
+ПР1_*_отчёт.*
+# артефакты
+.playwright-mcp/
+__pycache__/
+*.elf
+*.map
+*.kicad_prl
+*_full.png
+_tmp.pdf
+.DS_Store
