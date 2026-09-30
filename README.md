@@ -19,7 +19,7 @@
 5. Запуск ▶, скриншоты: схема, окно Program File, ключ вниз (LED не горит), ключ вверх (LED горит).
 6. Доп. задание: заменить SW-SPDT на `BUTTON` между PA0 и GROUND, прошивка `PR1_STM32_GPIO_IO_PULLUP.hex`, скриншот с нажатой кнопкой.
 
-Для ПР1 Multisim: вставить ссылку на репозиторий (`REPO_URL` в `PR1_Multisim/gen_report.py`) и перегенерировать отчёт.
+Репозиторий: https://github.com/hosjpps/peps-pr1-stm32
 
 ФИО, группа, преподаватель — константы в начале каждого `gen_report.py`; «Разраб.» в основной надписи схем — второй элемент `comments=[...]` в `kicad/gen_schematic.py`.
 
