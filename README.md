@@ -8,18 +8,13 @@
 
 Файлы `Практическая работа №4…` (Git/DevOps) и `Практическое занятие №1-2` (ML, kNN) — из других дисциплин, здесь не выполнялись.
 
-## Что осталось сделать руками (Windows + Proteus)
+## Моделирование без Windows
 
-В отчётах красным помечены места `[ВСТАВИТЬ …]`. Для ПР1 Proteus:
+Proteus работает только под Windows, поэтому ПР1 смоделирована в [Wokwi](https://wokwi.com) (модель Blue Pill, тот же STM32F103C8): `PR1_Proteus/wokwi/diagram.json` (SA1 + светодиод) и `diagram_pullup.json` (кнопка, доп. задание). Как повторить: открыть любой Blue Pill-проект Wokwi (например, https://wokwi.com/projects/374772127111874561), вставить содержимое diagram.json во вкладку diagram.json, F1 → «Upload Firmware and Start Simulation…» → выбрать `firmware/build/*.hex`, щёлкать переключатель/кнопку.
 
-1. Proteus → New Project `PR1_STM32_GPIO_IO` (путь без кириллицы и пробелов).
-2. Разместить: `STM32F103C8`, `SW-SPDT`, `RES` (220 Ом), `LED-GREEN`, терминалы POWER и GROUND.
-3. Соединить как на `PR1_Proteus/kicad/pr1_gpio_io.pdf`: общий контакт SW-SPDT → PA0, верхний → POWER, нижний → GROUND; PA1 → R → анод LED, катод → GROUND; NRST → POWER, BOOT0 → GROUND; VDD/VDDA/VBAT → POWER, VSS/VSSA → GROUND.
-4. Двойной щелчок по МК → **Program File** → `PR1_Proteus/firmware/build/PR1_STM32_GPIO_IO.hex` (готовый, CooCox не обязателен; если преподаватель требует сборку в CoIDE — вставить `firmware/src/main.c` в проект CoIDE с компонентами CMSIS, CMSIS BOOT, RCC, GPIO и собрать F7).
-5. Запуск ▶, скриншоты: схема, окно Program File, ключ вниз (LED не горит), ключ вверх (LED горит).
-6. Доп. задание: заменить SW-SPDT на `BUTTON` между PA0 и GROUND, прошивка `PR1_STM32_GPIO_IO_PULLUP.hex`, скриншот с нажатой кнопкой.
+Грабли Wokwi: нижний вывод `3V3.1` платы в модели не питается — брать `3V3.2` и `GND.2/GND.3` (верхний ряд).
 
-Репозиторий: https://github.com/hosjpps/peps-pr1-stm32
+Если нужен именно Proteus: схема по `PR1_Proteus/kicad/pr1_gpio_io.pdf`, в поле Program File — тот же `.hex`.
 
 ФИО, группа, преподаватель — константы в начале каждого `gen_report.py`; «Разраб.» в основной надписи схем — второй элемент `comments=[...]` в `kicad/gen_schematic.py`.
 

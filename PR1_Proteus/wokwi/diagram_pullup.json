@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Vasin S.A.",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-stm32-bluepill", "id": "stm32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 225, "left": 15, "attrs": { "color": "blue" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 95, "left": 115, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led1", "top": 45, "left": 215, "attrs": { "color": "green" } }
+  ],
+  "connections": [
+    [ "btn1:2.r", "stm32:A0", "green", [ "h20", "*" ] ],
+    [ "btn1:1.l", "stm32:GND.3", "black", [ "h-20", "v-270", "h95", "*" ] ],
+    [ "stm32:A1", "r1:1", "green", [] ],
+    [ "r1:2", "led1:A", "green", [] ],
+    [ "led1:C", "stm32:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
