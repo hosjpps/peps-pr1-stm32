@@ -110,7 +110,7 @@ class Report:
 
     def table(self, caption, header, rows, widths=None, size=12):
         self.tab += 1
-        cap = self.p(f"Таблица {self.tab} – {caption}", align=L, indent=False)
+        cap = self.p(f"Таблица {self.tab} — {caption}", align=L, indent=False)
         cap.paragraph_format.keep_with_next = True
         t = self.d.add_table(rows=1, cols=len(header))
         t.style = "Table Grid"
@@ -144,7 +144,7 @@ class Report:
         par.alignment = C
         par.paragraph_format.keep_with_next = True
         par.add_run().add_picture(path, width=Cm(width_cm))
-        self.p(f"Рисунок {self.fig} – {caption}", align=C, indent=False, after=6)
+        self.p(f"Рисунок {self.fig} — {caption}", align=C, indent=False, after=6)
         return self.fig
 
     def placeholder(self, caption, what):
@@ -155,7 +155,7 @@ class Report:
         r = par.add_run(f"[ВСТАВИТЬ СКРИНШОТ: {what}]")
         r.bold = True
         r.font.color.rgb = RGBColor(0xC0, 0, 0)
-        self.p(f"Рисунок {self.fig} – {caption}", align=C, indent=False, after=6)
+        self.p(f"Рисунок {self.fig} — {caption}", align=C, indent=False, after=6)
         return self.fig
 
     def todo(self, text):
@@ -167,7 +167,7 @@ class Report:
 
     def listing(self, caption, code):
         self.lst += 1
-        cap = self.p(f"Листинг {self.lst} – {caption}", align=L, indent=False)
+        cap = self.p(f"Листинг {self.lst} — {caption}", align=L, indent=False)
         cap.paragraph_format.keep_with_next = True
         for line in code.rstrip("\n").split("\n"):
             par = self.d.add_paragraph()
@@ -183,27 +183,32 @@ class Report:
         self.d.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
 
     def title_page(self, work, topic, student, group, teacher="", city_year="Москва 2026"):
+        """Титульный лист по образцу кафедры. topic в титул не выводится (наименование — в разделе 1)."""
         for line in ["МИНОБРНАУКИ РОССИИ",
-                     "Федеральное государственное бюджетное образовательное учреждение высшего образования",
-                     "«МИРЭА – Российский технологический университет»",
-                     "РТУ МИРЭА",
-                     "Институт перспективных технологий и индустриального программирования",
-                     "Кафедра индустриального программирования"]:
-            self.p(line, align=C, indent=False, size=12, bold=line in ("РТУ МИРЭА",))
+                     "Федеральное государственное бюджетное образовательное учреждение",
+                     "высшего образования",
+                     "«МИРЭА – Российский технологический университет»"]:
+            self.p(line, align=C, indent=False, size=12)
+        self.p("РТУ МИРЭА", align=C, indent=False, bold=True, size=14)
+        self.p("", indent=False)
+        self.p("Институт перспективных технологий и индустриального программирования", align=C,
+               indent=False, size=12)
+        self.p("Кафедра индустриального программирования", align=C, indent=False, size=12)
+        for _ in range(2):
+            self.p("", indent=False)
+        self.p(f"ОТЧЕТ ПО {work.replace('по ', '', 1).upper()}", align=C, indent=False, bold=True, size=16)
+        self.p("", indent=False)
+        self.p("по дисциплине «Программирование электронных приборов и систем»", align=C, indent=False)
+        self.p("", indent=False)
+        self.p("НАПРАВЛЕНИЕ ПОДГОТОВКИ", align=C, indent=False, bold=True, size=12)
+        self.p("09.03.02 «Информационные системы и технологии»", align=C, indent=False, size=12)
         for _ in range(3):
             self.p("", indent=False)
-        self.p("ОТЧЁТ", align=C, indent=False, bold=True, size=16)
-        self.p(f"по {work}", align=C, indent=False)
-        self.p("по дисциплине", align=C, indent=False)
-        self.p("«Программирование электронных приборов и систем»", align=C, indent=False)
-        self.p("", indent=False)
-        self.p(f"Тема: «{topic}»", align=C, indent=False, bold=True)
-        for _ in range(4):
-            self.p("", indent=False)
-        for line in [f"Выполнил: студент группы {group}", student, "",
-                     f"Проверил: {teacher or '_______________'}"]:
-            self.p(line, align=R, indent=False)
-        for _ in range(4):
+        self.p("Выполнил:", align=R, indent=False)
+        self.p(f"студент группы {group} {student}", align=R, indent=False)
+        self.p("Принял:", align=R, indent=False)
+        self.p(teacher or "Коняшкин Г.В.", align=R, indent=False)
+        for _ in range(3):
             self.p("", indent=False)
         self.p(city_year, align=C, indent=False)
         self.page_break()

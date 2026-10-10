@@ -6,7 +6,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "../tools"))
 from report_docx import C, Report  # noqa: E402
 
-STUDENT = "Васин С.А."
+STUDENT = "Васин С. А."
 GROUP = "ЭФБО-17-24"
 TEACHER = ""
 
@@ -351,6 +351,6 @@ r.p("Моделирование подтвердило передачу сост
     "моделирование показало неопределённое состояние входа: светодиод загорался после отпускания "
     "кнопки.")
 
-out = os.path.join(HERE, "ПР1_Proteus_отчёт.docx")
+out = os.path.join(HERE, "..", "Отчеты", "Отчет_ПР1_ЭЛ_Васин_ЭФБО-17-24.docx")
 r.save(out)
 print("saved", out)

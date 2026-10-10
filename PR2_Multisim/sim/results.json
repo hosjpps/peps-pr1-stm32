@@ -1,0 +1,261 @@
+{
+ "ram_test_AA.log": {
+  "xx": 170,
+  "cycles": 42814,
+  "time_ms": 42.814,
+  "cells_equal_xx": 1024,
+  "outside_unchanged": true,
+  "result": 0,
+  "checked": 1024,
+  "error_addr": 0,
+  "p1": 254,
+  "p1_0": 0
+ },
+ "ram_test_55.log": {
+  "xx": 85,
+  "cycles": 42814,
+  "time_ms": 42.814,
+  "cells_equal_xx": 1024,
+  "outside_unchanged": true,
+  "result": 0,
+  "checked": 1024,
+  "error_addr": 0,
+  "p1": 254,
+  "p1_0": 0
+ },
+ "ram_test_fault.log": {
+  "xx": 170,
+  "cycles": 4904,
+  "time_ms": 4.904,
+  "cells_equal_xx": 102,
+  "outside_unchanged": true,
+  "result": 1,
+  "checked": 99,
+  "error_addr": 2147,
+  "p1": 255,
+  "p1_0": 1
+ },
+ "rom_test_ok.log": {
+  "sum_image": 134,
+  "cycles": 2913,
+  "time_ms": 2.913,
+  "result": 0,
+  "calc_sum": 134,
+  "p1": 254,
+  "p1_0": 0
+ },
+ "rom_test_fault.log": {
+  "sum_image": 133,
+  "cycles": 2911,
+  "time_ms": 2.911,
+  "result": 1,
+  "calc_sum": 133,
+  "p1": 255,
+  "p1_0": 1
+ },
+ "trace_ram": {
+  "loop": [
+   {
+    "addr": 194,
+    "op": "MOV 0x82 <DPL>,R4",
+    "cycles": 2
+   },
+   {
+    "addr": 196,
+    "op": "MOV 0x83 <DPH>,R5",
+    "cycles": 2
+   },
+   {
+    "addr": 198,
+    "op": "MOV A,0x0d",
+    "cycles": 1
+   },
+   {
+    "addr": 200,
+    "op": "MOVX @DPTR,A",
+    "cycles": 2
+   },
+   {
+    "addr": 201,
+    "op": "MOV 0x82 <DPL>,R4",
+    "cycles": 2
+   },
+   {
+    "addr": 203,
+    "op": "MOV 0x83 <DPH>,R5",
+    "cycles": 2
+   },
+   {
+    "addr": 205,
+    "op": "MOVX A,@DPTR",
+    "cycles": 2
+   },
+   {
+    "addr": 206,
+    "op": "CJNE A,0x0d,0x00d3",
+    "cycles": 2
+   },
+   {
+    "addr": 209,
+    "op": "SJMP 0x00dc",
+    "cycles": 2
+   },
+   {
+    "addr": 220,
+    "op": "MOV R0,0x09",
+    "cycles": 2
+   },
+   {
+    "addr": 222,
+    "op": "MOV R1,0x0a",
+    "cycles": 2
+   },
+   {
+    "addr": 224,
+    "op": "MOV A,#0x01",
+    "cycles": 1
+   },
+   {
+    "addr": 226,
+    "op": "ADD A,R0",
+    "cycles": 1
+   },
+   {
+    "addr": 227,
+    "op": "MOV 0x09,A",
+    "cycles": 1
+   },
+   {
+    "addr": 229,
+    "op": "CLR A",
+    "cycles": 1
+   },
+   {
+    "addr": 230,
+    "op": "ADDC A,R1",
+    "cycles": 1
+   },
+   {
+    "addr": 231,
+    "op": "MOV 0x0a,A",
+    "cycles": 1
+   },
+   {
+    "addr": 233,
+    "op": "INC R4",
+    "cycles": 1
+   },
+   {
+    "addr": 234,
+    "op": "CJNE R4,#0x00,0x00ee",
+    "cycles": 2
+   },
+   {
+    "addr": 238,
+    "op": "MOV 0x06 <R6>,R4",
+    "cycles": 2
+   },
+   {
+    "addr": 240,
+    "op": "MOV 0x07 <R7>,R5",
+    "cycles": 2
+   },
+   {
+    "addr": 242,
+    "op": "INC R2",
+    "cycles": 1
+   },
+   {
+    "addr": 243,
+    "op": "CJNE R2,#0x00,0x00f7",
+    "cycles": 2
+   },
+   {
+    "addr": 247,
+    "op": "MOV A,#0xfc",
+    "cycles": 1
+   },
+   {
+    "addr": 249,
+    "op": "ADD A,R3",
+    "cycles": 1
+   },
+   {
+    "addr": 250,
+    "op": "JNC 0x00c2",
+    "cycles": 2
+   }
+  ],
+  "cycles_total": 41
+ },
+ "trace_rom": {
+  "loop": [
+   {
+    "addr": 180,
+    "op": "MOV 0x82 <DPL>,R5",
+    "cycles": 2
+   },
+   {
+    "addr": 182,
+    "op": "MOV 0x83 <DPH>,R6",
+    "cycles": 2
+   },
+   {
+    "addr": 184,
+    "op": "MOVX A,@DPTR",
+    "cycles": 2
+   },
+   {
+    "addr": 185,
+    "op": "MOV R3,A",
+    "cycles": 1
+   },
+   {
+    "addr": 186,
+    "op": "INC DPTR",
+    "cycles": 2
+   },
+   {
+    "addr": 187,
+    "op": "MOV R5,0x82 <DPL>",
+    "cycles": 2
+   },
+   {
+    "addr": 189,
+    "op": "MOV R6,0x83 <DPH>",
+    "cycles": 2
+   },
+   {
+    "addr": 191,
+    "op": "MOV A,R3",
+    "cycles": 1
+   },
+   {
+    "addr": 192,
+    "op": "ADD A,R7",
+    "cycles": 1
+   },
+   {
+    "addr": 193,
+    "op": "MOV R7,A",
+    "cycles": 1
+   },
+   {
+    "addr": 194,
+    "op": "INC R4",
+    "cycles": 1
+   },
+   {
+    "addr": 195,
+    "op": "CJNE R4,#0x64,0x00c6",
+    "cycles": 2
+   },
+   {
+    "addr": 198,
+    "op": "JC 0x00b4",
+    "cycles": 2
+   }
+  ],
+  "cycles_total": 21
+ }
+}

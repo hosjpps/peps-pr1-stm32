@@ -1,0 +1,18 @@
+{
+ "ram": {
+  "loop_cycles": 41.0,
+  "ale_pulses_per_loop": 80,
+  "ale_expected_no_skip": 82,
+  "skipped": 2,
+  "rd": 1,
+  "wr": 1
+ },
+ "rom": {
+  "loop_cycles": 21.0,
+  "ale_pulses_per_loop": 41,
+  "ale_expected_no_skip": 42,
+  "skipped": 1,
+  "rd": 1,
+  "wr": 0
+ }
+}

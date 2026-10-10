@@ -1,0 +1,198 @@
+# Задание 1: ОЗУ, имитация неисправной ячейки 0863h (содержимое искажено перед чтением)
+# s51 -t 8051 -X 12M -R 1 build/ram_test.ihx  (команды вводятся в консоль uCsim)
+s51> dx 0x7f8 0x7ff
+0x07f8 2d 6a 8c 77 99 ea 49 57 -j.w..IW
+s51> dx 0xc00 0xc07
+0x0c00 19 5b 1c 4f 15 82 c4 ff .[.O....
+s51> break 0x0106
+Breakpoint 1 at 0x000106 (cond="")
+0x0106 F  80 fe    SJMP   0x0106                                     
+s51> break 0x00cd 100
+Breakpoint 2 at 0x0000cd (cond="")
+0x00cd F  e0       MOVX   A,@DPTR                                    
+s51> run
+Simulation started, PC=0x000000
+
+Stop at 0x0000cd: (104) Breakpoint
+     R0 R1 R2 R3 R4 R5 R6 R7
+     62 00 63 00 63 08 63 08
+@R0 00 .  ACC= 0xaa 170 .  B= 0x00
+@R1 62 b  PSW= 0x00 CY=0 AC=0 OV=0 P=0
+SP 0x22 -> 00 4c 00 00 00 00 00 00
+   DPTR= 0x00000863 @DPTR= 0xaa 170 .
+0x00cd F  e0       MOVX   A,@DPTR                                    
+F 0x0000cd
+s51> dx 0x862 0x864
+0x0862 aa aa 91 ...
+s51> set memory xram 0x863 0xab
+0x0863                      ab 91 ..
+s51> dx 0x862 0x864
+0x0862 aa ab 91 ...
+s51> delete 2
+s51> run
+Simulation started, PC=0x0000cd
+
+Stop at 0x000106: (104) Breakpoint
+     R0 R1 R2 R3 R4 R5 R6 R7
+     62 00 63 00 63 08 63 08
+@R0 00 .  ACC= 0x01   1 .  B= 0x00
+@R1 62 b  PSW= 0x81 CY=1 AC=0 OV=0 P=1
+SP 0x22 -> 00 4c 00 00 00 00 00 00
+   DPTR= 0x00000863 @DPTR= 0xab 171 .
+0x0106 F  80 fe    SJMP   0x0106                                     
+F 0x000106
+s51> state
+CPU state= OK PC= 0x000106 frequency= 12000000 HZ
+Operation since last reset= 7598 vclks
+Inst= 3140 Fetch= 5523 Read= 906 Write= 1169
+Total time since last reset= 0.004904000000000 sec (58848 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x000022
+Simulation: stopped
+Runtime: 0.101227 sec
+s51> info registers
+     R0 R1 R2 R3 R4 R5 R6 R7
+     62 00 63 00 63 08 63 08
+@R0 00 .  ACC= 0x01   1 .  B= 0x00
+@R1 62 b  PSW= 0x81 CY=1 AC=0 OV=0 P=1
+SP 0x22 -> 00 4c 00 00 00 00 00 00
+   DPTR= 0x00000863 @DPTR= 0xab 171 .
+0x0106 F  80 fe    SJMP   0x0106                                     
+s51> di 0x08 0x0c
+0x08 01 63 00 63 08 .c.c.
+s51> ds 0x90 0x90
+0x90 ff .
+s51> dx 0x7f8 0x7ff
+0x07f8 2d 6a 8c 77 99 ea 49 57 -j.w..IW
+s51> dx 0xc00 0xc07
+0x0c00 19 5b 1c 4f 15 82 c4 ff .[.O....
+s51> dx 0x0800 0x0bff
+0x0800 aa aa aa aa aa aa aa aa ........
+0x0808 aa aa aa aa aa aa aa aa ........
+0x0810 aa aa aa aa aa aa aa aa ........
+0x0818 aa aa aa aa aa aa aa aa ........
+0x0820 aa aa aa aa aa aa aa aa ........
+0x0828 aa aa aa aa aa aa aa aa ........
+0x0830 aa aa aa aa aa aa aa aa ........
+0x0838 aa aa aa aa aa aa aa aa ........
+0x0840 aa aa aa aa aa aa aa aa ........
+0x0848 aa aa aa aa aa aa aa aa ........
+0x0850 aa aa aa aa aa aa aa aa ........
+0x0858 aa aa aa aa aa aa aa aa ........
+0x0860 aa aa aa ab 91 23 b4 c7 .....#..
+0x0868 8d 0a 6c 57 f9 8a 69 b7 ..lW..i.
+0x0870 e0 56 3d af 70 83 59 b6 .V=.p.Y.
+0x0878 08 33 95 36 25 73 9c 22 .3.6%s."
+0x0880 19 5b 1c 4f 15 82 c4 ff .[.O....
+0x0888 31 12 f1 3f 58 ee e5 07 1..?X...
+0x0890 b8 4b e1 4e 80 bb ed 9e .K.N....
+0x0898 cd fb 34 9a a1 d3 84 f7 ..4.....
+0x08a0 3d 3a 3c e7 a9 5a 99 67 =:<..Z.g
+0x08a8 10 66 cd 9f 40 b3 09 e6 .f..@...
+0x08b0 18 83 85 46 55 23 cc 32 ...FU#.2
+0x08b8 69 4b 2c 7f c5 b2 d4 4f iK,....O
+0x08c0 61 22 21 af 88 fe 35 37 a"!...57
+0x08c8 08 3b 51 7e 90 0b 1d ee .;Q~....
+0x08d0 bd 6b 64 aa f1 03 d4 e7 .kd.....
+0x08d8 ed 2a 4c b7 d9 aa 89 17 .*L.....
+0x08e0 00 b6 9d 0f 90 a3 b9 d6 ........
+0x08e8 68 93 f5 56 45 d3 bc 82 h..VE...
+0x08f0 79 bb 3c 6f 75 a2 24 5f y.<ou.$_
+0x08f8 91 32 11 9f 78 4e 45 67 .2..xNEg
+0x0900 d8 eb 41 ee e0 1b 4d be ..A...M.
+0x0908 6d 5b d4 fa 01 33 a4 97 m[...3..
+0x0910 1d da 9c c7 09 7a 39 47 .....z9G
+0x0918 b0 c6 ad ff 60 53 e9 86 ....`S..
+0x0920 f8 63 e5 e6 f5 03 6c 12 .c....l.
+0x0928 49 ab cc 1f a5 52 b4 2f I....R./
+0x0930 c1 c2 c1 8f 28 de 15 97 ....(...
+0x0938 a8 db 31 1e 70 eb 7d 8e ..1.p.}.
+0x0940 dd cb 04 8a d1 63 74 07 .....ct.
+0x0948 4d ca 2c 97 39 4a a9 77 M.,.9J.w
+0x0950 a0 16 7d ef 30 c3 19 76 ..}.0..v
+0x0958 c8 73 d5 f6 65 33 5c e2 .s..e3\.
+0x0960 59 9b dc 8f d5 42 84 3f Y....B.?
+0x0968 71 d2 31 ff 18 ae 25 47 q.1...%G
+0x0970 78 8b a1 0e 40 fb 2d 5e x...@.-^
+0x0978 0d bb f4 5a e1 13 44 37 ...Z..D7
+0x0980 fd fa fc 27 e9 1a d9 27 ...'...'
+0x0988 d0 26 0d df 00 f3 c9 a6 .&......
+0x0990 d8 c3 c5 06 95 e3 8c f2 ........
+0x0998 a9 8b ec bf 85 72 94 8f .....r..
+0x09a0 a1 e2 61 6f 48 be 75 77 ..aoH.uw
+0x09a8 c8 7b 11 3e 50 4b 5d ae .{.>PK].
+0x09b0 fd 2b 24 6a 31 43 94 27 .+$j1C.'
+0x09b8 ad ea 0c f7 19 6a c9 d7 .....j..
+0x09c0 c0 76 dd 4f 50 e3 79 96 .v.OP.y.
+0x09c8 28 d3 35 16 85 93 7c 42 (.5...|B
+0x09d0 b9 fb fc af 35 62 e4 9f ....5b..
+0x09d8 d1 f2 51 5f 38 0e 85 a7 ..Q_8...
+0x09e0 98 2b 01 ae a0 5b 8d 7e .+...[.~
+0x09e8 ad 1b 94 ba 41 73 64 d7 ....Asd.
+0x09f0 dd 9a 5c 07 49 3a 79 07 ..\.I:y.
+0x09f8 70 86 ed 3f 20 93 a9 46 p..? ..F
+0x0a00 b8 a3 25 a6 35 c3 2c d2 ..%.5.,.
+0x0a08 89 eb 8c 5f 65 12 74 6f ..._e.to
+0x0a10 01 82 01 4f e8 9e 55 d7 ...O..U.
+0x0a18 68 1b f1 de 30 2b bd 4e h...0+.N
+0x0a20 1d 8b c4 4a 11 a3 34 47 ...J..4G
+0x0a28 0d 8a ec d7 79 0a e9 37 ....y..7
+0x0a30 60 d6 bd 2f f0 03 d9 36 `../...6
+0x0a38 88 b3 15 b6 a5 f3 1c a2 ........
+0x0a40 99 db 9c cf 95 02 44 7f ......D.
+0x0a48 b1 92 71 bf d8 6e 65 87 ..q..ne.
+0x0a50 38 cb 61 ce 00 3b 6d 1e 8.a..;m.
+0x0a58 4d 7b b4 1a 21 53 04 77 M{..!S.w
+0x0a60 bd ba bc 67 29 da 19 e7 ...g)...
+0x0a68 90 e6 4d 1f c0 33 89 66 ..M..3.f
+0x0a70 98 03 05 c6 d5 a3 4c b2 ......L.
+0x0a78 e9 cb ac ff 45 32 54 cf ....E2T.
+0x0a80 e1 a2 a1 2f 08 7e b5 b7 .../.~..
+0x0a88 88 bb d1 fe 10 8b 9d 6e .......n
+0x0a90 3d eb e4 2a 71 83 54 67 =..*q.Tg
+0x0a98 6d aa cc 37 59 2a 09 97 m..7Y*..
+0x0aa0 80 36 1d 8f 10 23 39 56 .6...#9V
+0x0aa8 e8 13 75 d6 c5 53 3c 02 ..u..S<.
+0x0ab0 f9 3b bc ef f5 22 a4 df .;..."..
+0x0ab8 11 b2 91 1f f8 ce c5 e7 ........
+0x0ac0 58 6b c1 6e 60 9b cd 3e Xk.n`..>
+0x0ac8 ed db 54 7a 81 b3 24 17 ..Tz..$.
+0x0ad0 9d 5a 1c 47 89 fa b9 c7 .Z.G....
+0x0ad8 30 46 2d 7f e0 d3 69 06 0F-...i.
+0x0ae0 78 e3 65 66 75 83 ec 92 x.efu...
+0x0ae8 c9 2b 4c 9f 25 d2 34 af .+L.%.4.
+0x0af0 41 42 41 0f a8 5e 95 17 ABA..^..
+0x0af8 28 5b b1 9e f0 6b fd 0e ([...k..
+0x0b00 5d 4b 84 0a 51 e3 f4 87 ]K..Q...
+0x0b08 cd 4a ac 17 b9 ca 29 f7 .J....).
+0x0b10 20 96 fd 6f b0 43 99 f6  ..o.C..
+0x0b18 48 f3 55 76 e5 b3 dc 62 H.Uv...b
+0x0b20 d9 1b 5c 0f 55 c2 04 bf ..\.U...
+0x0b28 f1 52 b1 7f 98 2e a5 c7 .R......
+0x0b30 f8 0b 21 8e c0 7b ad de ..!..{..
+0x0b38 8d 3b 74 da 61 93 c4 b7 .;t.a...
+0x0b40 7d 7a 7c a7 69 9a 59 a7 }z|.i.Y.
+0x0b48 50 a6 8d 5f 80 73 49 26 P.._.sI&
+0x0b50 58 43 45 86 15 63 0c 72 XCE..c.r
+0x0b58 29 0b 6c 3f 05 f2 14 0f ).l?....
+0x0b60 21 62 e1 ef c8 3e f5 f7 !b...>..
+0x0b68 48 fb 91 be d0 cb dd 2e H.......
+0x0b70 7d ab a4 ea b1 c3 14 a7 }.......
+0x0b78 2d 6a 8c 77 99 ea 49 57 -j.w..IW
+0x0b80 40 f6 5d cf d0 63 f9 16 @.]..c..
+0x0b88 a8 53 b5 96 05 13 fc c2 .S......
+0x0b90 39 7b 7c 2f b5 e2 64 1f 9{|/..d.
+0x0b98 51 72 d1 df b8 8e 05 27 Qr.....'
+0x0ba0 18 ab 81 2e 20 db 0d fe .... ...
+0x0ba8 2d 9b 14 3a c1 f3 e4 57 -..:...W
+0x0bb0 5d 1a dc 87 c9 ba f9 87 ].......
+0x0bb8 f0 06 6d bf a0 13 29 c6 ..m...).
+0x0bc0 38 23 a5 26 b5 43 ac 52 8#.&.C.R
+0x0bc8 09 6b 0c df e5 92 f4 ef .k......
+0x0bd0 81 02 81 cf 68 1e d5 57 ....h..W
+0x0bd8 e8 9b 71 5e b0 ab 3d ce ..q^..=.
+0x0be0 9d 0b 44 ca 91 23 b4 c7 ..D..#..
+0x0be8 8d 0a 6c 57 f9 8a 69 b7 ..lW..i.
+0x0bf0 e0 56 3d af 70 83 59 b6 .V=.p.Y.
+0x0bf8 08 33 95 36 25 73 9c 22 .3.6%s."

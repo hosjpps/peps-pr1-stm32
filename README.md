@@ -41,6 +41,8 @@ cd PR1_Multisim/kicad && python3 gen_schematic.py
 cd PR2_Proteus/firmware && make && uv run --with unicorn --with pyelftools --with matplotlib python emulate_i2c.py \
   && uv run --with matplotlib python plot_i2c.py
 cd ../schematic && python3 draw.py
+# ПР2 Multisim: 8051 + внешняя память; нужен SDCC (sdcc, s51)
+cd PR2_Multisim && python3 draw.py && python3 sim/run_all.py && python3 scope.py
 ```
 
 Скрипты схем завершаются с ошибкой, если соединения не совпали с заданными или ERC нашёл нарушения.

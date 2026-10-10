@@ -1,0 +1,67 @@
+# Задание 2: ПЗУ, образ без искажений
+# s51 -t 8051 -X 12M -R 1 build/rom_test.ihx  (команды вводятся в консоль uCsim)
+s51> set memory xram 0x0800 0x03 0x0a 0x11 0x18 0x1f 0x26 0x2d 0x34 0x3b 0x42 0x49 0x ... (всего 101 значений)
+0x0800                      03 0a 11 18 1f 26 2d 34 .....&-4
+0x0808                      3b 42 49 50 57 5e 65 6c ;BIPW^el
+0x0810                      73 7a 81 88 8f 96 9d a4 sz......
+0x0818                      ab b2 b9 c0 c7 ce d5 dc ........
+0x0820                      e3 ea f1 f8 ff 06 0d 14 ........
+0x0828                      1b 22 29 30 37 3e 45 4c .")07>EL
+0x0830                      53 5a 61 68 6f 76 7d 84 SZahov}.
+0x0838                      8b 92 99 a0 a7 ae b5 bc ........
+0x0840                      c3 ca d1 d8 df e6 ed f4 ........
+0x0848                      fb 02 09 10 17 1e 25 2c ......%,
+0x0850                      33 3a 41 48 4f 56 5d 64 3:AHOV]d
+0x0858                      6b 72 79 80 87 8e 95 9c kry.....
+0x0860                      a3 aa b1 b8 91          .....
+s51> dx 0x0800 0x0863
+0x0800 03 0a 11 18 1f 26 2d 34 .....&-4
+0x0808 3b 42 49 50 57 5e 65 6c ;BIPW^el
+0x0810 73 7a 81 88 8f 96 9d a4 sz......
+0x0818 ab b2 b9 c0 c7 ce d5 dc ........
+0x0820 e3 ea f1 f8 ff 06 0d 14 ........
+0x0828 1b 22 29 30 37 3e 45 4c .")07>EL
+0x0830 53 5a 61 68 6f 76 7d 84 SZahov}.
+0x0838 8b 92 99 a0 a7 ae b5 bc ........
+0x0840 c3 ca d1 d8 df e6 ed f4 ........
+0x0848 fb 02 09 10 17 1e 25 2c ......%,
+0x0850 33 3a 41 48 4f 56 5d 64 3:AHOV]d
+0x0858 6b 72 79 80 87 8e 95 9c kry.....
+0x0860 a3 aa b1 b8             ....
+s51> break 0x00d9
+Breakpoint 1 at 0x0000d9 (cond="")
+0x00d9 F  80 fe    SJMP   0x00d9                                     
+s51> run
+Simulation started, PC=0x000000
+
+Stop at 0x0000d9: (104) Breakpoint
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 b8 64 64 08 86
+@R0 00 .  ACC= 0x86 134 .  B= 0x00
+@R1 00 .  PSW= 0x41 CY=0 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 86 00 86 08 64 64
+   DPTR= 0x00000864 @DPTR= 0x91 145 .
+0x00d9 F  80 fe    SJMP   0x00d9                                     
+F 0x0000d9
+s51> state
+CPU state= OK PC= 0x0000d9 frequency= 12000000 HZ
+Operation since last reset= 4204 vclks
+Inst= 1844 Fetch= 2834 Read= 705 Write= 665
+Total time since last reset= 0.002913000000000 sec (34956 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.099309 sec
+s51> info registers
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 b8 64 64 08 86
+@R0 00 .  ACC= 0x86 134 .  B= 0x00
+@R1 00 .  PSW= 0x41 CY=0 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 86 00 86 08 64 64
+   DPTR= 0x00000864 @DPTR= 0x91 145 .
+0x00d9 F  80 fe    SJMP   0x00d9                                     
+s51> di 0x08 0x09
+0x08 00 86 ..
+s51> ds 0x90 0x90
+0x90 fe .

@@ -1,0 +1,924 @@
+# Трасса одной итерации цикла контрольной суммы ПЗУ (адрес 00B4h - начало цикла)
+# s51 -t 8051 -X 12M -R 1 build/rom_test.ihx  (команды вводятся в консоль uCsim)
+s51> set memory xram 0x0800 0x03 0x0a 0x11 0x18 0x1f 0x26 0x2d 0x34 0x3b 0x42 0x49 0x ... (всего 101 значений)
+0x0800                      03 0a 11 18 1f 26 2d 34 .....&-4
+0x0808                      3b 42 49 50 57 5e 65 6c ;BIPW^el
+0x0810                      73 7a 81 88 8f 96 9d a4 sz......
+0x0818                      ab b2 b9 c0 c7 ce d5 dc ........
+0x0820                      e3 ea f1 f8 ff 06 0d 14 ........
+0x0828                      1b 22 29 30 37 3e 45 4c .")07>EL
+0x0830                      53 5a 61 68 6f 76 7d 84 SZahov}.
+0x0838                      8b 92 99 a0 a7 ae b5 bc ........
+0x0840                      c3 ca d1 d8 df e6 ed f4 ........
+0x0848                      fb 02 09 10 17 1e 25 2c ......%,
+0x0850                      33 3a 41 48 4f 56 5d 64 3:AHOV]d
+0x0858                      6b 72 79 80 87 8e 95 9c kry.....
+0x0860                      a3 aa b1 b8 91          .....
+s51> break 0x00b4 3
+Breakpoint 1 at 0x0000b4 (cond="")
+0x00b4 F  8d 82    MOV    0x82 <DPL>,R5                              
+s51> run
+Simulation started, PC=0x000000
+
+Stop at 0x0000b4: (104) Breakpoint
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 0a 02 02 08 0d
+@R0 00 .  ACC= 0x0d  13 .  B= 0x00
+@R1 00 .  PSW= 0x81 CY=1 AC=0 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000802 @DPTR= 0x11  17 .
+0x00b4 F  8d 82    MOV    0x82 <DPL>,R5                              
+F 0x0000b4
+s51> delete 1
+s51> history clear
+s51> state
+CPU state= OK PC= 0x0000b4 frequency= 12000000 HZ
+Operation since last reset= 1150 vclks
+Inst= 565 Fetch= 862 Read= 18 Write= 270
+Total time since last reset= 0.000846000000000 sec (10152 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.100431 sec
+s51> step 1
+
+Stop at 0x0000b6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 0a 02 02 08 0d
+@R0 00 .  ACC= 0x0d  13 .  B= 0x00
+@R1 00 .  PSW= 0x81 CY=1 AC=0 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000802 @DPTR= 0x11  17 .
+0x00b6    8e 83    MOV    0x83 <DPH>,R6                              
+F 0x0000b6
+s51> state
+CPU state= OK PC= 0x0000b6 frequency= 12000000 HZ
+Operation since last reset= 1153 vclks
+Inst= 566 Fetch= 864 Read= 18 Write= 271
+Total time since last reset= 0.000848000000000 sec (10176 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.101142 sec
+s51> step 1
+
+Stop at 0x0000b8: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 0a 02 02 08 0d
+@R0 00 .  ACC= 0x0d  13 .  B= 0x00
+@R1 00 .  PSW= 0x81 CY=1 AC=0 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000802 @DPTR= 0x11  17 .
+0x00b8    e0       MOVX   A,@DPTR                                    
+F 0x0000b8
+s51> state
+CPU state= OK PC= 0x0000b8 frequency= 12000000 HZ
+Operation since last reset= 1156 vclks
+Inst= 567 Fetch= 866 Read= 18 Write= 272
+Total time since last reset= 0.000850000000000 sec (10200 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.101862 sec
+s51> step 1
+
+Stop at 0x0000b9: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 0a 02 02 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000802 @DPTR= 0x11  17 .
+0x00b9    fb       MOV    R3,A                                       
+F 0x0000b9
+s51> state
+CPU state= OK PC= 0x0000b9 frequency= 12000000 HZ
+Operation since last reset= 1160 vclks
+Inst= 568 Fetch= 867 Read= 21 Write= 272
+Total time since last reset= 0.000852000000000 sec (10224 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.102534 sec
+s51> step 1
+
+Stop at 0x0000ba: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 02 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000802 @DPTR= 0x11  17 .
+0x00ba    a3       INC    DPTR                                       
+F 0x0000ba
+s51> state
+CPU state= OK PC= 0x0000ba frequency= 12000000 HZ
+Operation since last reset= 1161 vclks
+Inst= 569 Fetch= 868 Read= 21 Write= 272
+Total time since last reset= 0.000853000000000 sec (10236 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.103225 sec
+s51> step 1
+
+Stop at 0x0000bb: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 02 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 02 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00bb    ad 82    MOV    R5,0x82 <DPL>                              
+F 0x0000bb
+s51> state
+CPU state= OK PC= 0x0000bb frequency= 12000000 HZ
+Operation since last reset= 1166 vclks
+Inst= 570 Fetch= 869 Read= 23 Write= 274
+Total time since last reset= 0.000855000000000 sec (10260 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.103956 sec
+s51> step 1
+
+Stop at 0x0000bd: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 03 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 03 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00bd    ae 83    MOV    R6,0x83 <DPH>                              
+F 0x0000bd
+s51> state
+CPU state= OK PC= 0x0000bd frequency= 12000000 HZ
+Operation since last reset= 1169 vclks
+Inst= 571 Fetch= 871 Read= 24 Write= 274
+Total time since last reset= 0.000857000000000 sec (10284 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.104655 sec
+s51> step 1
+
+Stop at 0x0000bf: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 03 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 03 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00bf    eb       MOV    A,R3                                       
+F 0x0000bf
+s51> state
+CPU state= OK PC= 0x0000bf frequency= 12000000 HZ
+Operation since last reset= 1172 vclks
+Inst= 572 Fetch= 873 Read= 25 Write= 274
+Total time since last reset= 0.000859000000000 sec (10308 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.105398 sec
+s51> step 1
+
+Stop at 0x0000c0: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 03 08 0d
+@R0 00 .  ACC= 0x11  17 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 03 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00c0    2f       ADD    A,R7                                       
+F 0x0000c0
+s51> state
+CPU state= OK PC= 0x0000c0 frequency= 12000000 HZ
+Operation since last reset= 1173 vclks
+Inst= 573 Fetch= 874 Read= 25 Write= 274
+Total time since last reset= 0.000860000000000 sec (10320 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.106041 sec
+s51> step 1
+
+Stop at 0x0000c1: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 03 08 0d
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x00 CY=0 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 0d 08 03 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00c1    ff       MOV    R7,A                                       
+F 0x0000c1
+s51> state
+CPU state= OK PC= 0x0000c1 frequency= 12000000 HZ
+Operation since last reset= 1174 vclks
+Inst= 574 Fetch= 875 Read= 25 Write= 274
+Total time since last reset= 0.000861000000000 sec (10332 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.106693 sec
+s51> step 1
+
+Stop at 0x0000c2: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 02 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x00 CY=0 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 02
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00c2    0c       INC    R4                                         
+F 0x0000c2
+s51> state
+CPU state= OK PC= 0x0000c2 frequency= 12000000 HZ
+Operation since last reset= 1175 vclks
+Inst= 575 Fetch= 876 Read= 25 Write= 274
+Total time since last reset= 0.000862000000000 sec (10344 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.107325 sec
+s51> step 1
+
+Stop at 0x0000c3: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x00 CY=0 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6                            
+F 0x0000c3
+s51> state
+CPU state= OK PC= 0x0000c3 frequency= 12000000 HZ
+Operation since last reset= 1176 vclks
+Inst= 576 Fetch= 877 Read= 25 Write= 274
+Total time since last reset= 0.000863000000000 sec (10356 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.107951 sec
+s51> step 1
+
+Stop at 0x0000c6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00c6    40 ec    JC     0x00b4                                     
+F 0x0000c6
+s51> state
+CPU state= OK PC= 0x0000c6 frequency= 12000000 HZ
+Operation since last reset= 1179 vclks
+Inst= 577 Fetch= 880 Read= 25 Write= 274
+Total time since last reset= 0.000865000000000 sec (10380 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.108613 sec
+s51> step 1
+
+Stop at 0x0000b4: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00b4    8d 82    MOV    0x82 <DPL>,R5                              
+F 0x0000b4
+s51> state
+CPU state= OK PC= 0x0000b4 frequency= 12000000 HZ
+Operation since last reset= 1181 vclks
+Inst= 578 Fetch= 882 Read= 25 Write= 274
+Total time since last reset= 0.000867000000000 sec (10404 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.109252 sec
+s51> step 1
+
+Stop at 0x0000b6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00b6    8e 83    MOV    0x83 <DPH>,R6                              
+F 0x0000b6
+s51> state
+CPU state= OK PC= 0x0000b6 frequency= 12000000 HZ
+Operation since last reset= 1184 vclks
+Inst= 579 Fetch= 884 Read= 25 Write= 275
+Total time since last reset= 0.000869000000000 sec (10428 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.109862 sec
+s51> step 1
+
+Stop at 0x0000b8: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x1e  30 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00b8    e0       MOVX   A,@DPTR                                    
+F 0x0000b8
+s51> state
+CPU state= OK PC= 0x0000b8 frequency= 12000000 HZ
+Operation since last reset= 1187 vclks
+Inst= 580 Fetch= 886 Read= 25 Write= 276
+Total time since last reset= 0.000871000000000 sec (10452 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.110498 sec
+s51> step 1
+
+Stop at 0x0000b9: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 11 03 03 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00b9    fb       MOV    R3,A                                       
+F 0x0000b9
+s51> state
+CPU state= OK PC= 0x0000b9 frequency= 12000000 HZ
+Operation since last reset= 1191 vclks
+Inst= 581 Fetch= 887 Read= 28 Write= 276
+Total time since last reset= 0.000873000000000 sec (10476 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.111141 sec
+s51> step 1
+
+Stop at 0x0000ba: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 03 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000803 @DPTR= 0x18  24 .
+0x00ba    a3       INC    DPTR                                       
+F 0x0000ba
+s51> state
+CPU state= OK PC= 0x0000ba frequency= 12000000 HZ
+Operation since last reset= 1192 vclks
+Inst= 582 Fetch= 888 Read= 28 Write= 276
+Total time since last reset= 0.000874000000000 sec (10488 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.111759 sec
+s51> step 1
+
+Stop at 0x0000bb: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 03 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 03 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00bb    ad 82    MOV    R5,0x82 <DPL>                              
+F 0x0000bb
+s51> state
+CPU state= OK PC= 0x0000bb frequency= 12000000 HZ
+Operation since last reset= 1197 vclks
+Inst= 583 Fetch= 889 Read= 30 Write= 278
+Total time since last reset= 0.000876000000000 sec (10512 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.112383 sec
+s51> step 1
+
+Stop at 0x0000bd: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 04 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 04 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00bd    ae 83    MOV    R6,0x83 <DPH>                              
+F 0x0000bd
+s51> state
+CPU state= OK PC= 0x0000bd frequency= 12000000 HZ
+Operation since last reset= 1200 vclks
+Inst= 584 Fetch= 891 Read= 31 Write= 278
+Total time since last reset= 0.000878000000000 sec (10536 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.113003 sec
+s51> step 1
+
+Stop at 0x0000bf: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 04 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 04 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00bf    eb       MOV    A,R3                                       
+F 0x0000bf
+s51> state
+CPU state= OK PC= 0x0000bf frequency= 12000000 HZ
+Operation since last reset= 1203 vclks
+Inst= 585 Fetch= 893 Read= 32 Write= 278
+Total time since last reset= 0.000880000000000 sec (10560 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.113631 sec
+s51> step 1
+
+Stop at 0x0000c0: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 04 08 1e
+@R0 00 .  ACC= 0x18  24 .  B= 0x00
+@R1 00 .  PSW= 0x80 CY=1 AC=0 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 04 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00c0    2f       ADD    A,R7                                       
+F 0x0000c0
+s51> state
+CPU state= OK PC= 0x0000c0 frequency= 12000000 HZ
+Operation since last reset= 1204 vclks
+Inst= 586 Fetch= 894 Read= 32 Write= 278
+Total time since last reset= 0.000881000000000 sec (10572 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.114235 sec
+s51> step 1
+
+Stop at 0x0000c1: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 04 08 1e
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 1e 08 04 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00c1    ff       MOV    R7,A                                       
+F 0x0000c1
+s51> state
+CPU state= OK PC= 0x0000c1 frequency= 12000000 HZ
+Operation since last reset= 1205 vclks
+Inst= 587 Fetch= 895 Read= 32 Write= 278
+Total time since last reset= 0.000882000000000 sec (10584 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.114876 sec
+s51> step 1
+
+Stop at 0x0000c2: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 03 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 03
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00c2    0c       INC    R4                                         
+F 0x0000c2
+s51> state
+CPU state= OK PC= 0x0000c2 frequency= 12000000 HZ
+Operation since last reset= 1206 vclks
+Inst= 588 Fetch= 896 Read= 32 Write= 278
+Total time since last reset= 0.000883000000000 sec (10596 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.115515 sec
+s51> step 1
+
+Stop at 0x0000c3: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6                            
+F 0x0000c3
+s51> state
+CPU state= OK PC= 0x0000c3 frequency= 12000000 HZ
+Operation since last reset= 1207 vclks
+Inst= 589 Fetch= 897 Read= 32 Write= 278
+Total time since last reset= 0.000884000000000 sec (10608 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.116137 sec
+s51> step 1
+
+Stop at 0x0000c6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00c6    40 ec    JC     0x00b4                                     
+F 0x0000c6
+s51> state
+CPU state= OK PC= 0x0000c6 frequency= 12000000 HZ
+Operation since last reset= 1210 vclks
+Inst= 590 Fetch= 900 Read= 32 Write= 278
+Total time since last reset= 0.000886000000000 sec (10632 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.116726 sec
+s51> step 1
+
+Stop at 0x0000b4: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00b4    8d 82    MOV    0x82 <DPL>,R5                              
+F 0x0000b4
+s51> state
+CPU state= OK PC= 0x0000b4 frequency= 12000000 HZ
+Operation since last reset= 1212 vclks
+Inst= 591 Fetch= 902 Read= 32 Write= 278
+Total time since last reset= 0.000888000000000 sec (10656 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.117326 sec
+s51> step 1
+
+Stop at 0x0000b6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00b6    8e 83    MOV    0x83 <DPH>,R6                              
+F 0x0000b6
+s51> state
+CPU state= OK PC= 0x0000b6 frequency= 12000000 HZ
+Operation since last reset= 1215 vclks
+Inst= 592 Fetch= 904 Read= 32 Write= 279
+Total time since last reset= 0.000890000000000 sec (10680 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.117927 sec
+s51> step 1
+
+Stop at 0x0000b8: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x36  54 6  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00b8    e0       MOVX   A,@DPTR                                    
+F 0x0000b8
+s51> state
+CPU state= OK PC= 0x0000b8 frequency= 12000000 HZ
+Operation since last reset= 1218 vclks
+Inst= 593 Fetch= 906 Read= 32 Write= 280
+Total time since last reset= 0.000892000000000 sec (10704 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.118528 sec
+s51> step 1
+
+Stop at 0x0000b9: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 18 04 04 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00b9    fb       MOV    R3,A                                       
+F 0x0000b9
+s51> state
+CPU state= OK PC= 0x0000b9 frequency= 12000000 HZ
+Operation since last reset= 1222 vclks
+Inst= 594 Fetch= 907 Read= 35 Write= 280
+Total time since last reset= 0.000894000000000 sec (10728 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.119182 sec
+s51> step 1
+
+Stop at 0x0000ba: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 04 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000804 @DPTR= 0x1f  31 .
+0x00ba    a3       INC    DPTR                                       
+F 0x0000ba
+s51> state
+CPU state= OK PC= 0x0000ba frequency= 12000000 HZ
+Operation since last reset= 1223 vclks
+Inst= 595 Fetch= 908 Read= 35 Write= 280
+Total time since last reset= 0.000895000000000 sec (10740 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.119819 sec
+s51> step 1
+
+Stop at 0x0000bb: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 04 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 04 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00bb    ad 82    MOV    R5,0x82 <DPL>                              
+F 0x0000bb
+s51> state
+CPU state= OK PC= 0x0000bb frequency= 12000000 HZ
+Operation since last reset= 1228 vclks
+Inst= 596 Fetch= 909 Read= 37 Write= 282
+Total time since last reset= 0.000897000000000 sec (10764 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.120458 sec
+s51> step 1
+
+Stop at 0x0000bd: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 05 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 05 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00bd    ae 83    MOV    R6,0x83 <DPH>                              
+F 0x0000bd
+s51> state
+CPU state= OK PC= 0x0000bd frequency= 12000000 HZ
+Operation since last reset= 1231 vclks
+Inst= 597 Fetch= 911 Read= 38 Write= 282
+Total time since last reset= 0.000899000000000 sec (10788 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.121089 sec
+s51> step 1
+
+Stop at 0x0000bf: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 05 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 05 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00bf    eb       MOV    A,R3                                       
+F 0x0000bf
+s51> state
+CPU state= OK PC= 0x0000bf frequency= 12000000 HZ
+Operation since last reset= 1234 vclks
+Inst= 598 Fetch= 913 Read= 39 Write= 282
+Total time since last reset= 0.000901000000000 sec (10812 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.121765 sec
+s51> step 1
+
+Stop at 0x0000c0: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 05 08 36
+@R0 00 .  ACC= 0x1f  31 .  B= 0x00
+@R1 00 .  PSW= 0xc1 CY=1 AC=1 OV=0 P=1
+SP 0x0b -> 00 4c 00 00 36 08 05 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00c0    2f       ADD    A,R7                                       
+F 0x0000c0
+s51> state
+CPU state= OK PC= 0x0000c0 frequency= 12000000 HZ
+Operation since last reset= 1235 vclks
+Inst= 599 Fetch= 914 Read= 39 Write= 282
+Total time since last reset= 0.000902000000000 sec (10824 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.122430 sec
+s51> step 1
+
+Stop at 0x0000c1: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 05 08 36
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 36 08 05 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00c1    ff       MOV    R7,A                                       
+F 0x0000c1
+s51> state
+CPU state= OK PC= 0x0000c1 frequency= 12000000 HZ
+Operation since last reset= 1236 vclks
+Inst= 600 Fetch= 915 Read= 39 Write= 282
+Total time since last reset= 0.000903000000000 sec (10836 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.123079 sec
+s51> step 1
+
+Stop at 0x0000c2: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 04 05 08 55
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 55 08 05 04
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00c2    0c       INC    R4                                         
+F 0x0000c2
+s51> state
+CPU state= OK PC= 0x0000c2 frequency= 12000000 HZ
+Operation since last reset= 1237 vclks
+Inst= 601 Fetch= 916 Read= 39 Write= 282
+Total time since last reset= 0.000904000000000 sec (10848 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.123681 sec
+s51> step 1
+
+Stop at 0x0000c3: (109) stepped 12 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 05 05 08 55
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0x40 CY=0 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 55 08 05 05
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6                            
+F 0x0000c3
+s51> state
+CPU state= OK PC= 0x0000c3 frequency= 12000000 HZ
+Operation since last reset= 1238 vclks
+Inst= 602 Fetch= 917 Read= 39 Write= 282
+Total time since last reset= 0.000905000000000 sec (10860 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.124279 sec
+s51> step 1
+
+Stop at 0x0000c6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 05 05 08 55
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 55 08 05 05
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00c6    40 ec    JC     0x00b4                                     
+F 0x0000c6
+s51> state
+CPU state= OK PC= 0x0000c6 frequency= 12000000 HZ
+Operation since last reset= 1241 vclks
+Inst= 603 Fetch= 920 Read= 39 Write= 282
+Total time since last reset= 0.000907000000000 sec (10884 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.124851 sec
+s51> step 1
+
+Stop at 0x0000b4: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 05 05 08 55
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 55 08 05 05
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00b4    8d 82    MOV    0x82 <DPL>,R5                              
+F 0x0000b4
+s51> state
+CPU state= OK PC= 0x0000b4 frequency= 12000000 HZ
+Operation since last reset= 1243 vclks
+Inst= 604 Fetch= 922 Read= 39 Write= 282
+Total time since last reset= 0.000909000000000 sec (10908 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.125457 sec
+s51> step 1
+
+Stop at 0x0000b6: (109) stepped 24 ticks
+     R0 R1 R2 R3 R4 R5 R6 R7
+     00 00 00 1f 05 05 08 55
+@R0 00 .  ACC= 0x55  85 U  B= 0x00
+@R1 00 .  PSW= 0xc0 CY=1 AC=1 OV=0 P=0
+SP 0x0b -> 00 4c 00 00 55 08 05 05
+   DPTR= 0x00000805 @DPTR= 0x26  38 &
+0x00b6    8e 83    MOV    0x83 <DPH>,R6                              
+F 0x0000b6
+s51> state
+CPU state= OK PC= 0x0000b6 frequency= 12000000 HZ
+Operation since last reset= 1246 vclks
+Inst= 605 Fetch= 924 Read= 39 Write= 283
+Total time since last reset= 0.000911000000000 sec (10932 clks)
+Time in isr = 0.000000000000000 sec (0 clks) 0.00%
+Time in idle= 0.000000000000000 sec (0 clks) 0.00%
+Most value of stack pointer= 0x00000b
+Simulation: stopped
+Runtime: 0.126042 sec
+s51> history list 40
+0x00b4    8d 82    MOV    0x82 <DPL>,R5
+0x00b6    8e 83    MOV    0x83 <DPH>,R6
+0x00b8    e0       MOVX   A,@DPTR
+0x00b9    fb       MOV    R3,A
+0x00ba    a3       INC    DPTR
+0x00bb    ad 82    MOV    R5,0x82 <DPL>
+0x00bd    ae 83    MOV    R6,0x83 <DPH>
+0x00bf    eb       MOV    A,R3
+0x00c0    2f       ADD    A,R7
+0x00c1    ff       MOV    R7,A
+0x00c2    0c       INC    R4
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6
+0x00c6    40 ec    JC     0x00b4
+0x00b4    8d 82    MOV    0x82 <DPL>,R5
+0x00b6    8e 83    MOV    0x83 <DPH>,R6
+0x00b8    e0       MOVX   A,@DPTR
+0x00b9    fb       MOV    R3,A
+0x00ba    a3       INC    DPTR
+0x00bb    ad 82    MOV    R5,0x82 <DPL>
+0x00bd    ae 83    MOV    R6,0x83 <DPH>
+0x00bf    eb       MOV    A,R3
+0x00c0    2f       ADD    A,R7
+0x00c1    ff       MOV    R7,A
+0x00c2    0c       INC    R4
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6
+0x00c6    40 ec    JC     0x00b4
+0x00b4    8d 82    MOV    0x82 <DPL>,R5
+0x00b6    8e 83    MOV    0x83 <DPH>,R6
+0x00b8    e0       MOVX   A,@DPTR
+0x00b9    fb       MOV    R3,A
+0x00ba    a3       INC    DPTR
+0x00bb    ad 82    MOV    R5,0x82 <DPL>
+0x00bd    ae 83    MOV    R6,0x83 <DPH>
+0x00bf    eb       MOV    A,R3
+0x00c0    2f       ADD    A,R7
+0x00c1    ff       MOV    R7,A
+0x00c2    0c       INC    R4
+0x00c3    bc 64 00 CJNE   R4,#0x64,0x00c6
+0x00c6    40 ec    JC     0x00b4
+0x00b4    8d 82    MOV    0x82 <DPL>,R5
