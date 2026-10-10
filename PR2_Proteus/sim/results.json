@@ -1,0 +1,1066 @@
+[
+ {
+  "name": "normal",
+  "led": 1,
+  "eeprom_read": 52,
+  "rtc_raw": 0,
+  "rtc_value": 0,
+  "eeprom_cell": 52,
+  "ds_regs": [
+   0,
+   52,
+   18,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "nack_polls": 48,
+  "t_us": 6845.0,
+  "sr1": 0,
+  "sr2": 0,
+  "i2c_cfg": {
+   "cr2_freq": 8,
+   "ccr": 40,
+   "trise": 9,
+   "oar1": 16384,
+   "cr1": 1025
+  },
+  "events": [
+   {
+    "t": 0.0,
+    "kind": "S"
+   },
+   {
+    "t": 10.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": true,
+    "name": "24LC64"
+   },
+   {
+    "t": 100.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 190.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 280.0,
+    "kind": "data",
+    "value": 52,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 370.0,
+    "kind": "P"
+   },
+   {
+    "t": 375.0,
+    "kind": "S"
+   },
+   {
+    "t": 385.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 475.0,
+    "kind": "P"
+   },
+   {
+    "t": 480.0,
+    "kind": "S"
+   },
+   {
+    "t": 490.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 580.0,
+    "kind": "P"
+   },
+   {
+    "t": 585.0,
+    "kind": "S"
+   },
+   {
+    "t": 595.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 685.0,
+    "kind": "P"
+   },
+   {
+    "t": 690.0,
+    "kind": "S"
+   },
+   {
+    "t": 700.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 790.0,
+    "kind": "P"
+   },
+   {
+    "t": 795.0,
+    "kind": "S"
+   },
+   {
+    "t": 805.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 895.0,
+    "kind": "P"
+   },
+   {
+    "t": 900.0,
+    "kind": "S"
+   },
+   {
+    "t": 910.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1000.0,
+    "kind": "P"
+   },
+   {
+    "t": 1005.0,
+    "kind": "S"
+   },
+   {
+    "t": 1015.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1105.0,
+    "kind": "P"
+   },
+   {
+    "t": 1110.0,
+    "kind": "S"
+   },
+   {
+    "t": 1120.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1210.0,
+    "kind": "P"
+   },
+   {
+    "t": 1215.0,
+    "kind": "S"
+   },
+   {
+    "t": 1225.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1315.0,
+    "kind": "P"
+   },
+   {
+    "t": 1320.0,
+    "kind": "S"
+   },
+   {
+    "t": 1330.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1420.0,
+    "kind": "P"
+   },
+   {
+    "t": 1425.0,
+    "kind": "S"
+   },
+   {
+    "t": 1435.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1525.0,
+    "kind": "P"
+   },
+   {
+    "t": 1530.0,
+    "kind": "S"
+   },
+   {
+    "t": 1540.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1630.0,
+    "kind": "P"
+   },
+   {
+    "t": 1635.0,
+    "kind": "S"
+   },
+   {
+    "t": 1645.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1735.0,
+    "kind": "P"
+   },
+   {
+    "t": 1740.0,
+    "kind": "S"
+   },
+   {
+    "t": 1750.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1840.0,
+    "kind": "P"
+   },
+   {
+    "t": 1845.0,
+    "kind": "S"
+   },
+   {
+    "t": 1855.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 1945.0,
+    "kind": "P"
+   },
+   {
+    "t": 1950.0,
+    "kind": "S"
+   },
+   {
+    "t": 1960.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2050.0,
+    "kind": "P"
+   },
+   {
+    "t": 2055.0,
+    "kind": "S"
+   },
+   {
+    "t": 2065.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2155.0,
+    "kind": "P"
+   },
+   {
+    "t": 2160.0,
+    "kind": "S"
+   },
+   {
+    "t": 2170.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2260.0,
+    "kind": "P"
+   },
+   {
+    "t": 2265.0,
+    "kind": "S"
+   },
+   {
+    "t": 2275.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2365.0,
+    "kind": "P"
+   },
+   {
+    "t": 2370.0,
+    "kind": "S"
+   },
+   {
+    "t": 2380.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2470.0,
+    "kind": "P"
+   },
+   {
+    "t": 2475.0,
+    "kind": "S"
+   },
+   {
+    "t": 2485.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2575.0,
+    "kind": "P"
+   },
+   {
+    "t": 2580.0,
+    "kind": "S"
+   },
+   {
+    "t": 2590.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2680.0,
+    "kind": "P"
+   },
+   {
+    "t": 2685.0,
+    "kind": "S"
+   },
+   {
+    "t": 2695.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2785.0,
+    "kind": "P"
+   },
+   {
+    "t": 2790.0,
+    "kind": "S"
+   },
+   {
+    "t": 2800.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2890.0,
+    "kind": "P"
+   },
+   {
+    "t": 2895.0,
+    "kind": "S"
+   },
+   {
+    "t": 2905.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 2995.0,
+    "kind": "P"
+   },
+   {
+    "t": 3000.0,
+    "kind": "S"
+   },
+   {
+    "t": 3010.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3100.0,
+    "kind": "P"
+   },
+   {
+    "t": 3105.0,
+    "kind": "S"
+   },
+   {
+    "t": 3115.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3205.0,
+    "kind": "P"
+   },
+   {
+    "t": 3210.0,
+    "kind": "S"
+   },
+   {
+    "t": 3220.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3310.0,
+    "kind": "P"
+   },
+   {
+    "t": 3315.0,
+    "kind": "S"
+   },
+   {
+    "t": 3325.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3415.0,
+    "kind": "P"
+   },
+   {
+    "t": 3420.0,
+    "kind": "S"
+   },
+   {
+    "t": 3430.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3520.0,
+    "kind": "P"
+   },
+   {
+    "t": 3525.0,
+    "kind": "S"
+   },
+   {
+    "t": 3535.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3625.0,
+    "kind": "P"
+   },
+   {
+    "t": 3630.0,
+    "kind": "S"
+   },
+   {
+    "t": 3640.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3730.0,
+    "kind": "P"
+   },
+   {
+    "t": 3735.0,
+    "kind": "S"
+   },
+   {
+    "t": 3745.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3835.0,
+    "kind": "P"
+   },
+   {
+    "t": 3840.0,
+    "kind": "S"
+   },
+   {
+    "t": 3850.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 3940.0,
+    "kind": "P"
+   },
+   {
+    "t": 3945.0,
+    "kind": "S"
+   },
+   {
+    "t": 3955.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4045.0,
+    "kind": "P"
+   },
+   {
+    "t": 4050.0,
+    "kind": "S"
+   },
+   {
+    "t": 4060.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4150.0,
+    "kind": "P"
+   },
+   {
+    "t": 4155.0,
+    "kind": "S"
+   },
+   {
+    "t": 4165.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4255.0,
+    "kind": "P"
+   },
+   {
+    "t": 4260.0,
+    "kind": "S"
+   },
+   {
+    "t": 4270.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4360.0,
+    "kind": "P"
+   },
+   {
+    "t": 4365.0,
+    "kind": "S"
+   },
+   {
+    "t": 4375.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4465.0,
+    "kind": "P"
+   },
+   {
+    "t": 4470.0,
+    "kind": "S"
+   },
+   {
+    "t": 4480.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4570.0,
+    "kind": "P"
+   },
+   {
+    "t": 4575.0,
+    "kind": "S"
+   },
+   {
+    "t": 4585.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4675.0,
+    "kind": "P"
+   },
+   {
+    "t": 4680.0,
+    "kind": "S"
+   },
+   {
+    "t": 4690.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4780.0,
+    "kind": "P"
+   },
+   {
+    "t": 4785.0,
+    "kind": "S"
+   },
+   {
+    "t": 4795.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4885.0,
+    "kind": "P"
+   },
+   {
+    "t": 4890.0,
+    "kind": "S"
+   },
+   {
+    "t": 4900.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 4990.0,
+    "kind": "P"
+   },
+   {
+    "t": 4995.0,
+    "kind": "S"
+   },
+   {
+    "t": 5005.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 5095.0,
+    "kind": "P"
+   },
+   {
+    "t": 5100.0,
+    "kind": "S"
+   },
+   {
+    "t": 5110.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 5200.0,
+    "kind": "P"
+   },
+   {
+    "t": 5205.0,
+    "kind": "S"
+   },
+   {
+    "t": 5215.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 5305.0,
+    "kind": "P"
+   },
+   {
+    "t": 5310.0,
+    "kind": "S"
+   },
+   {
+    "t": 5320.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "24LC64"
+   },
+   {
+    "t": 5410.0,
+    "kind": "P"
+   },
+   {
+    "t": 5415.0,
+    "kind": "S"
+   },
+   {
+    "t": 5425.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": true,
+    "name": "24LC64"
+   },
+   {
+    "t": 5515.0,
+    "kind": "P"
+   },
+   {
+    "t": 5520.0,
+    "kind": "S"
+   },
+   {
+    "t": 5530.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": true,
+    "name": "24LC64"
+   },
+   {
+    "t": 5620.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 5710.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 5800.0,
+    "kind": "Sr"
+   },
+   {
+    "t": 5810.0,
+    "kind": "addr",
+    "value": 161,
+    "read": 1,
+    "ack": true,
+    "name": "24LC64"
+   },
+   {
+    "t": 5900.0,
+    "kind": "data",
+    "value": 52,
+    "read": 1,
+    "ack": false
+   },
+   {
+    "t": 5990.0,
+    "kind": "P"
+   },
+   {
+    "t": 5995.0,
+    "kind": "S"
+   },
+   {
+    "t": 6005.0,
+    "kind": "addr",
+    "value": 208,
+    "read": 0,
+    "ack": true,
+    "name": "DS1307"
+   },
+   {
+    "t": 6095.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 6185.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 6275.0,
+    "kind": "data",
+    "value": 52,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 6365.0,
+    "kind": "data",
+    "value": 18,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 6455.0,
+    "kind": "P"
+   },
+   {
+    "t": 6460.0,
+    "kind": "S"
+   },
+   {
+    "t": 6470.0,
+    "kind": "addr",
+    "value": 208,
+    "read": 0,
+    "ack": true,
+    "name": "DS1307"
+   },
+   {
+    "t": 6560.0,
+    "kind": "data",
+    "value": 0,
+    "read": 0,
+    "ack": true
+   },
+   {
+    "t": 6650.0,
+    "kind": "Sr"
+   },
+   {
+    "t": 6660.0,
+    "kind": "addr",
+    "value": 209,
+    "read": 1,
+    "ack": true,
+    "name": "DS1307"
+   },
+   {
+    "t": 6750.0,
+    "kind": "data",
+    "value": 0,
+    "read": 1,
+    "ack": false
+   },
+   {
+    "t": 6840.0,
+    "kind": "P"
+   }
+  ]
+ },
+ {
+  "name": "wrong_address",
+  "led": 0,
+  "eeprom_read": 0,
+  "rtc_raw": 0,
+  "rtc_value": 0,
+  "eeprom_cell": 255,
+  "ds_regs": [
+   128,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "nack_polls": 0,
+  "t_us": 105.0,
+  "sr1": 0,
+  "sr2": 0,
+  "i2c_cfg": {
+   "cr2_freq": 8,
+   "ccr": 40,
+   "trise": 9,
+   "oar1": 16384,
+   "cr1": 1025
+  },
+  "events": [
+   {
+    "t": 0.0,
+    "kind": "S"
+   },
+   {
+    "t": 10.0,
+    "kind": "addr",
+    "value": 160,
+    "read": 0,
+    "ack": false,
+    "name": "—"
+   },
+   {
+    "t": 100.0,
+    "kind": "P"
+   }
+  ]
+ },
+ {
+  "name": "no_pullup",
+  "led": 0,
+  "eeprom_read": 0,
+  "rtc_raw": 0,
+  "rtc_value": 0,
+  "eeprom_cell": 255,
+  "ds_regs": [
+   128,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "nack_polls": 0,
+  "t_us": 0.0,
+  "sr1": 0,
+  "sr2": 2,
+  "i2c_cfg": {
+   "cr2_freq": 8,
+   "ccr": 40,
+   "trise": 9,
+   "oar1": 16384,
+   "cr1": 1025
+  },
+  "events": []
+ }
+]

@@ -1,0 +1,53 @@
+=== сценарий: normal ===
+светодиод PA1 = 1; g_eeprom_read = 0x34; g_rtc_raw = 0x00; g_rtc_value = 0
+EEPROM[0x0000] = 0x34; регистры DS1307 0..7: 00 34 12 00 00 00 00 00; NACK при ACK polling: 48; время на шине: 6.84 мс
+I2C1: CR2.FREQ = 8, CCR = 40, TRISE = 9, OAR1 = 0x4000, SR1 = 0x0000, SR2 = 0x0000
+журнал шины (первые 24 события):
+        0.0 мкс  START
+       10.0 мкс  SLA+W 0xA0 (24LC64) -> ACK
+      100.0 мкс  данные 0x00 (ведущий -> ведомый) -> ACK
+      190.0 мкс  данные 0x00 (ведущий -> ведомый) -> ACK
+      280.0 мкс  данные 0x34 (ведущий -> ведомый) -> ACK
+      370.0 мкс  STOP
+      375.0 мкс  START
+      385.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+      475.0 мкс  STOP
+      480.0 мкс  START
+      490.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+      580.0 мкс  STOP
+      585.0 мкс  START
+      595.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+      685.0 мкс  STOP
+      690.0 мкс  START
+      700.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+      790.0 мкс  STOP
+      795.0 мкс  START
+      805.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+      895.0 мкс  STOP
+      900.0 мкс  START
+      910.0 мкс  SLA+W 0xA0 (24LC64) -> NACK
+     1000.0 мкс  STOP
+
+=== сценарий: wrong_address ===
+светодиод PA1 = 0; g_eeprom_read = 0x00; g_rtc_raw = 0x00; g_rtc_value = 0
+EEPROM[0x0000] = 0xFF; регистры DS1307 0..7: 80 00 00 00 00 00 00 00; NACK при ACK polling: 0; время на шине: 0.10 мс
+I2C1: CR2.FREQ = 8, CCR = 40, TRISE = 9, OAR1 = 0x4000, SR1 = 0x0000, SR2 = 0x0000
+журнал шины (первые 24 события):
+        0.0 мкс  START
+       10.0 мкс  SLA+W 0xA0 (—) -> NACK
+      100.0 мкс  STOP
+
+=== сценарий: no_pullup ===
+светодиод PA1 = 0; g_eeprom_read = 0x00; g_rtc_raw = 0x00; g_rtc_value = 0
+EEPROM[0x0000] = 0xFF; регистры DS1307 0..7: 80 00 00 00 00 00 00 00; NACK при ACK polling: 0; время на шине: 0.00 мс
+I2C1: CR2.FREQ = 8, CCR = 40, TRISE = 9, OAR1 = 0x4000, SR1 = 0x0000, SR2 = 0x0002
+журнал шины (первые 24 события):
+
+[OK] normal: светодиод горит, записано = считано = 0x34
+[OK] normal: ACK polling завершился, NACK-опросов > 0 и общее время записи около 5 мс
+[OK] normal: DS1307 — сек 0x00 (CH = 0), мин 0x34, часы 0x12; raw = 0x00, десятичное 0
+[OK] normal: SR1/SR2 без ошибок, шина свободна
+[OK] normal: CR2.FREQ = 8, CCR = 40, TRISE = 9
+[OK] wrong_address: NACK на SLA+W 0xA0, светодиод не горит, в EEPROM ничего не записано
+[OK] no_pullup: шина занята (BUSY), на SDA/SCL нет активности, светодиод не горит
+ИТОГ: все проверки пройдены

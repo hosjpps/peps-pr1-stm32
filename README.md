@@ -6,7 +6,9 @@
 |---|---|
 | `PR1_Proteus/` | ПР1 «Создание микроконтроллерной схемы ввода-вывода», вариант А (STM32F103C8), инд. вариант 1: вход PA0, выход PA1 |
 | `PR1_Multisim/` | ПР1 «Основы работы с ПО для проектирования схем» — учебный стенд STM32F103C8 + 4 периферийных модуля (схема в KiCad) |
-| `tools/` | генерация схем KiCad и отчётов |
+| `PR2_Proteus/` | ПР2 «Подключение внешней памяти и периферии» — STM32F103C8 + EEPROM 24LC64 + DS1307 по I²C, вариант 1 |
+| `PR2_Multisim/` | ПР2 «Подключение внешней памяти и её тестирование» — 8051 + внешние ОЗУ и ПЗУ, вариант 1 (ОЗУ) и 7 (ПЗУ) |
+| `tools/` | генерация схем и отчётов |
 
 ## Состав
 
@@ -35,6 +37,10 @@ cd PR1_Multisim/firmware && make && uv run --with unicorn --with pyelftools pyth
 # схемы: построение, сверка списка цепей (netlist) и ERC, экспорт PDF/PNG
 cd PR1_Proteus/kicad  && python3 gen_schematic.py
 cd PR1_Multisim/kicad && python3 gen_schematic.py
+# ПР2: I²C — эмуляция прошивки с моделями шины, временные диаграммы, схема
+cd PR2_Proteus/firmware && make && uv run --with unicorn --with pyelftools --with matplotlib python emulate_i2c.py \
+  && uv run --with matplotlib python plot_i2c.py
+cd ../schematic && python3 draw.py
 ```
 
 Скрипты схем завершаются с ошибкой, если соединения не совпали с заданными или ERC нашёл нарушения.
